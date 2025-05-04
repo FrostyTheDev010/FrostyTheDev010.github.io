@@ -1,27 +1,134 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Frosty's Site</title>
-    <style>
-      body {
-        background-color: #0e0e0e;
-        color: #00ffff;
-        font-family: monospace;
-        text-align: center;
-        padding-top: 100px;
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>❄️ FrostByte Terminal</title>
+  <style>
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
       }
-      h1 {
-        font-size: 48px;
+      20%, 22%, 24%, 55% {
+        opacity: 0.4;
       }
-      p {
-        font-size: 18px;
-        color: #ccc;
+    }
+
+    @keyframes fog {
+      0% {
+        background-position: 0% 50%;
       }
-    </style>
-  </head>
-  <body>
-    <h1>💻 Frosty's Hacker Den 💻</h1>
-    <p>Welcome to my GitHub-powered website! Free, fast, and clean.</p>
-  </body>
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes frostPulse {
+      0% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 0.4; }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Courier New', Courier, monospace;
+      background: radial-gradient(circle at center, #00141a 0%, #000000 100%);
+      color: #aefaff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      text-shadow: 0 0 15px #00f0ff, 0 0 40px #00e0ff, 0 0 80px #ffffff;
+      animation: flicker 4s infinite;
+    }
+
+    .tagline {
+      font-size: 1.4em;
+      margin-top: 1em;
+      color: #b7f6ff;
+      text-shadow: 0 0 5px #33e0ff, 0 0 15px #00d9ff;
+      animation: flicker 6s infinite;
+    }
+
+    .fog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url('https://i.imgur.com/U2RHzmj.png') repeat;
+      opacity: 0.05;
+      z-index: 1;
+      pointer-events: none;
+      animation: fog 60s linear infinite;
+    }
+
+    .frost-crystal {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #ffffffaa 0%, #00ffff55 70%, transparent 100%);
+      border-radius: 50%;
+      animation: frostPulse 4s infinite;
+      filter: blur(1px);
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 2em;
+      backdrop-filter: blur(3px);
+    }
+
+    .links a {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 0 1em;
+      display: inline-block;
+    }
+
+    footer {
+      margin-top: 3em;
+      font-size: 1em;
+      color: #99faff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="fog"></div>
+
+  <div class="frost-crystal" style="left: 15%; animation-delay: 0s;"></div>
+  <div class="frost-crystal" style="left: 50%; animation-delay: 1s;"></div>
+  <div class="frost-crystal" style="left: 80%; animation-delay: 2s;"></div>
+
+  <div class="container">
+    <h1>🧊 Bl3akC1pher_v2</h1>
+    <div class="tagline">
+      Digital frost spreading through the net.<br>
+      Encrypted ideas. Frozen thoughts. Pure dev chaos.
+    </div>
+
+    <div class="links" style="margin-top: 2em;">
+      <a href="https://github.com/FrostyTheDev010" target="_blank">GitHub</a>
+      <a href="#" onclick="alert('404 - Portal is sealed.')">Darknet Portal</a>
+      <a href="#" onclick="alert('🔐 Access Denied.')">CryoVault</a>
+    </div>
+
+    <footer>
+      <p>💾 Project: FrostByte_V1 | Created by Frosty</p>
+    </footer>
+  </div>
+</body>
 </html>
